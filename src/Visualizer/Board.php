@@ -34,6 +34,17 @@ class Board
     }
 
     /**
+     * @param int $x
+     * @param int $y
+     * @param int $color
+     */
+    public function setColor($x, $y, $color)
+    {
+        $this->validateCoordinate($x, $y);
+        $this->coordinates[$x][$y] = $color;
+    }
+
+    /**
      * @return string
      */
     public function show()
@@ -46,5 +57,20 @@ class Board
             $str .= "\n";
         }
         return $str;
+    }
+
+    /**
+     * @param int $x
+     * @param int $y
+     */
+    protected function validateCoordinate($x, $y)
+    {
+        if ($x <= 0 || $y <= 0) {
+            throw new Exception\OutOfRange("The coordinate ({$x},{$y}) is invalid");
+        }
+
+        if ($x > $this->getWidth() || $y > $this->getHeight()) {
+            throw new Exception\OutOfRange("The coordinate ({$x},{$y}) is invalid");
+        }
     }
 }

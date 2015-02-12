@@ -26,4 +26,24 @@ class BoardTest extends \PHPUnit_Framework_TestCase
         $board = new Visualizer\Board(3, 4);
         $this->assertEquals("OOO\nOOO\nOOO\nOOO\n", $board->show());
     }
+
+    /**
+     * @test
+     */
+    public function setCoordinate()
+    {
+        $board = new Visualizer\Board(3, 4);
+        $board->setColor(2, 3, 'G');
+        $this->assertEquals("OOO\nOOO\nOGO\nOOO\n", $board->show());
+    }
+
+    /**
+     * @test
+     * @expectedException \Visualizer\Exception\OutOfRange
+     */
+    public function invalidCoordinate()
+    {
+        $board = new Visualizer\Board(3, 4);
+        $board->setColor(5, 3, 'G');
+    }
 }
