@@ -44,16 +44,16 @@ class Fill implements CommandInterface
         $checked[$x][$y] = true;
         if ($this->originalColor == $currentColor) {
             $board->setColor($x, $y, $this->color);
-            if ($board->isValid($x-1, $y)) {
+            if ($board->isValid($x-1, $y) && !isset($checked[$x-1][$y])) {
                 $this->fillArea($x-1, $y, $board, $checked);
             }
-            if ($board->isValid($x+1, $y)) {
+            if ($board->isValid($x+1, $y) && !isset($checked[$x+1][$y])) {
                 $this->fillArea($x+1, $y, $board, $checked);
             }
-            if ($board->isValid($x, $y-1)) {
+            if ($board->isValid($x, $y-1) && !isset($checked[$x][$y-1])) {
                 $this->fillArea($x, $y-1, $board, $checked);
             }
-            if ($board->isValid($x, $y+1)) {
+            if ($board->isValid($x, $y+1) && !isset($checked[$x][$y+1])) {
                 $this->fillArea($x, $y+1, $board, $checked);
             }
         }

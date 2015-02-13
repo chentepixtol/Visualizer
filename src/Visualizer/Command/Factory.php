@@ -53,9 +53,9 @@ class Factory
                 break;
             
             default:
-                # code...
                 break;
         }
+        return false;
     }
 
 }

@@ -120,13 +120,8 @@ class CommandTest extends \PHPUnit_Framework_TestCase
      */
     public function tux()
     {
-        $board = Visualizer\Board::load(file_get_contents(dirname(__FILE__) . '/../tux.txt'));
-        $command = Visualizer\Command\Factory::create('F 30 40 |');
-        $command->run($board);
-        $command = Visualizer\Command\Factory::create('F 22 50 .');
-        $command->run($board);
-        $command = Visualizer\Command\Factory::create('F 77 50 .');
-        $command->run($board);
+        $application = new Visualizer\Application();
+        $board = $application->run(dirname(__FILE__) . '/../tux.txt', "F 22 50 .\nF 77 50 .\n");
         echo "\n";
         echo $board->show();
         echo "\n";
