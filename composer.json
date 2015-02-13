@@ -1,0 +1,19 @@
+{
+    "name": "Visualizer",
+    "description": "Visualizer test",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vicente Mendoza",
+            "email": "vicentemmor@yahoo.com.mx"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3"
+    },
+    "require-dev": {
+    	"symfony/finder": "~2.7|~3.0",
+        "symfony/class-loader": "~2.7|~3.0"
+    }
+}
