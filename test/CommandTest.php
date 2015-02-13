@@ -66,4 +66,19 @@ class CommandTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($command instanceOf Visualizer\Command\Show);
     }
 
+    /**
+     * @test
+     */
+    public function pixel()
+    {
+        $board = new Visualizer\Board(3, 3);
+
+        $command = Visualizer\Command\Factory::create('L 1 1 G');
+        $this->assertTrue($command instanceOf Visualizer\Command\Pixel);
+        
+        $command->run($board);
+        $this->assertEquals("GOO\nOOO\nOOO\n", $board->show());
+    }
+
+
 }
