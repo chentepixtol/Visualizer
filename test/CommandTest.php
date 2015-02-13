@@ -80,5 +80,14 @@ class CommandTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals("GOO\nOOO\nOOO\n", $board->show());
     }
 
+    /**
+     * @test
+     */
+    public function image()
+    {
+        $board = new Visualizer\Board(30, 30);
+        $command = Visualizer\Command\Factory::create('I 2 2');
+        $command->run($board);
+    }
 
 }

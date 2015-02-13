@@ -45,6 +45,17 @@ class Board
     }
 
     /**
+     * @param int $width
+     * @param int $height
+     */
+    public function resize($width, $height)
+    {
+        $this->width = $width;
+        $this->height = $height;
+        $this->coordinates = array();
+    }
+
+    /**
      * @return string
      */
     public function show()

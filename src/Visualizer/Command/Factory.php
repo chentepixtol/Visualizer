@@ -36,6 +36,9 @@ class Factory
                  }
                 return static::$instances['S'];
                 break;
+            case 'I':
+                return new Image($params[0], $params[1]);
+                break;
             case 'L':
                 return new Pixel($params[0], $params[1], $params[2]);
                 break;
