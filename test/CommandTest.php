@@ -33,4 +33,19 @@ class CommandTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals("OOO\nOOO\nGGO\n", $board->show());
     }
 
+    /**
+     * @test
+     */
+    public function clear()
+    {
+        $board = new Visualizer\Board(3, 3);
+        $board->setColor(1, 1, 'G');
+        $this->assertEquals("GOO\nOOO\nOOO\n", $board->show());
+
+        $command = Visualizer\Command\Factory::create('C');
+        $this->assertTrue($command instanceOf Visualizer\Command\Clear);
+        $command->run($board);
+        $this->assertEquals("OOO\nOOO\nOOO\n", $board->show());
+    }
+
 }

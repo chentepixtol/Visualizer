@@ -24,5 +24,6 @@ class Vertical implements CommandInterface
         for ($y = $this->y1; $y<= $this->y2; $y++) {
             $board->setColor($this->x, $y, $this->color);
         }
+        return $board;
     }
 }

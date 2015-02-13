@@ -24,5 +24,6 @@ class Horizontal implements CommandInterface
         for ($x = $this->x1; $x <= $this->x2; $x++) {
             $board->setColor($x, $this->y, $this->color);
         }
+        return $board;
     }
 }
