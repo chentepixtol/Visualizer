@@ -73,4 +73,12 @@ class Board
             throw new Exception\OutOfRange("The coordinate ({$x},{$y}) is invalid");
         }
     }
+
+    /**
+     * 
+     */
+    public function clear()
+    {
+        $this->coordinates = array();
+    }
 }

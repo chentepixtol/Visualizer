@@ -4,7 +4,6 @@ namespace Test\Visualizer;
 
 use Visualizer;
 
-
 class BoardTest extends \PHPUnit_Framework_TestCase
 {
     
@@ -45,5 +44,17 @@ class BoardTest extends \PHPUnit_Framework_TestCase
     {
         $board = new Visualizer\Board(3, 4);
         $board->setColor(5, 3, 'G');
+    }
+
+    /**
+     * @test
+     */
+    public function clear()
+    {
+        $board = new Visualizer\Board(3, 4);
+        $board->setColor(2, 3, 'G');
+        $this->assertEquals("OOO\nOOO\nOGO\nOOO\n", $board->show());
+        $board->clear();
+        $this->assertEquals("OOO\nOOO\nOOO\nOOO\n", $board->show());
     }
 }
