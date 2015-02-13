@@ -115,4 +115,22 @@ class CommandTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals("OIOOOO\nOIIIIO\nOOOOIO\nOIIIIO\nOIIOOO\nOOIOOO\n", $board->show());
     }
 
+    /**
+     * @test
+     */
+    public function tux()
+    {
+        $board = Visualizer\Board::load(file_get_contents(dirname(__FILE__) . '/../tux.txt'));
+        $command = Visualizer\Command\Factory::create('F 30 40 |');
+        $command->run($board);
+        $command = Visualizer\Command\Factory::create('F 22 50 .');
+        $command->run($board);
+        $command = Visualizer\Command\Factory::create('F 77 50 .');
+        $command->run($board);
+        echo "\n";
+        echo $board->show();
+        echo "\n";
+        $this->assertTrue(true);
+    }
+
 }

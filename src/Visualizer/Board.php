@@ -96,4 +96,21 @@ class Board
     {
         $this->coordinates = array();
     }
+
+    /**
+     * @return Board
+     */
+    public static function load($str)
+    {
+        $lines = explode("\n", $str);
+        $height = count($lines);
+        $width = strlen($lines[0]);
+        $board = new static($width, $height);
+        foreach ($lines as $y => $line) {
+            for($x=0; $x< $width; $x++) {
+                $board->setColor($x+1, $y+1, isset($line[$x]) ? $line[$x] : '');
+            }
+        }
+        return $board;
+    }
 }
