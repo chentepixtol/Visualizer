@@ -53,8 +53,17 @@ class CommandTest extends \PHPUnit_Framework_TestCase
      */
     public function exitTest()
     {
-        $command = Visualizer\Command\Factory::create('E');
+        $command = Visualizer\Command\Factory::create('X');
         $this->assertTrue($command instanceOf Visualizer\Command\ExitCommand);
+    }
+
+    /**
+     * @test
+     */
+    public function show()
+    {
+        $command = Visualizer\Command\Factory::create('S');
+        $this->assertTrue($command instanceOf Visualizer\Command\Show);
     }
 
 }
