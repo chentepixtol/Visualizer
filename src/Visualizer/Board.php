@@ -76,13 +76,17 @@ class Board
      */
     protected function validateCoordinate($x, $y)
     {
-        if ($x <= 0 || $y <= 0) {
+        if (!$this->isValid($x, $y)) {
             throw new Exception\OutOfRange("The coordinate ({$x},{$y}) is invalid");
         }
+    }
 
-        if ($x > $this->getWidth() || $y > $this->getHeight()) {
-            throw new Exception\OutOfRange("The coordinate ({$x},{$y}) is invalid");
+    public function isValid($x, $y)
+    {
+        if ($x <= 0 || $y <= 0 || $x > $this->getWidth() || $y > $this->getHeight()) {
+            return false;
         }
+        return true;
     }
 
     /**

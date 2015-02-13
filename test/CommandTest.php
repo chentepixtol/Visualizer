@@ -90,4 +90,29 @@ class CommandTest extends \PHPUnit_Framework_TestCase
         $command->run($board);
     }
 
+    /**
+     * @test
+     */
+    public function fill()
+    {
+        $board = new Visualizer\Board(6, 6);
+        $board->setColor(2, 1, 'M');
+        $board->setColor(2, 2, 'M');
+        $board->setColor(3, 2, 'M');
+        $board->setColor(4, 2, 'M');
+        $board->setColor(5, 2, 'M');
+        $board->setColor(5, 3, 'M');
+        $board->setColor(5, 4, 'M');
+        $board->setColor(4, 4, 'M');
+        $board->setColor(3, 4, 'M');
+        $board->setColor(2, 4, 'M');
+        $board->setColor(2, 5, 'M');
+        $board->setColor(3, 5, 'M');
+        $board->setColor(3, 6, 'M');
+
+        $command = Visualizer\Command\Factory::create('F 3 4 I');
+        $command->run($board);
+        $this->assertEquals("OIOOOO\nOIIIIO\nOOOOIO\nOIIIIO\nOIIOOO\nOOIOOO\n", $board->show());
+    }
+
 }
