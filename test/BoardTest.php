@@ -1,6 +1,6 @@
 <?php
 
-namespace Test\Visualizer;
+namespace Test;
 
 use Visualizer;
 
