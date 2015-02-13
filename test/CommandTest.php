@@ -48,4 +48,13 @@ class CommandTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals("OOO\nOOO\nOOO\n", $board->show());
     }
 
+    /**
+     * @test
+     */
+    public function exitTest()
+    {
+        $command = Visualizer\Command\Factory::create('E');
+        $this->assertTrue($command instanceOf Visualizer\Command\ExitCommand);
+    }
+
 }

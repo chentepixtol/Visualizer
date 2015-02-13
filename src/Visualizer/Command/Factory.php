@@ -24,6 +24,12 @@ class Factory
                  }
                 return static::$instances['C'];
                 break;
+            case 'E':
+                 if (!isset(static::$instances['E'])) {
+                    static::$instances['E'] = new ExitCommand();
+                 }
+                return static::$instances['E'];
+                break;
             case 'V':
                 return new Vertical($params[0], $params[1], $params[2], $params[3]);
                 break;
